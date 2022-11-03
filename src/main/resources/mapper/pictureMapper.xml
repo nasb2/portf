@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.portf.dao.PictureMapper">
+
+    <!--    select-->
+    <select id="selectCnt" resultType="int">
+        select count(*)
+        from picture;
+    </select>
+
+    <select id="selectAll" resultType="PictureDto">
+        select *
+        from picture
+        order by regDate desc;
+    </select>
+
+    <select id="selectList" resultType="PictureDto">
+        select *
+        from picture
+        order by regDate desc, pno desc
+            limit #{offset}, #{pageSize};
+    </select>
+
+    <select id="select" parameterType="int" resultType="PictureDto">
+        select *
+        from picture
+        where pno = #{pno};
+    </select>
+
+    <!--    delete-->
+    <delete id="deleteAll">
+        delete
+        from picture;
+    </delete>
+
+    <delete id="delete" parameterType="map">
+        delete
+        from picture
+        where pno = #{pno}
+          and writer = #{writer};
+    </delete>
+
+    <!--    insert-->
+    <insert id="insert" parameterType="PictureDto">
+        insert into picture (title, writer, content, filename, filepath, originalFilename)
+        values (#{title}, #{writer}, #{content}, #{filename}, #{filepath}, #{originalFilename});
+    </insert>
+
+    <!--    update-->
+    <update id="update" parameterType="PictureDto">
+        update picture
+        set title   = #{title},
+            content = #{content},
+            filename=#{filename},
+            filepath=#{filepath}
+        where pno = #{pno};
+    </update>
+</mapper>

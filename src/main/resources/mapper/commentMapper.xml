@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.portf.dao.CommentMapper">
+    <!--select-->
+    <select id="commentCnt" resultType="int">
+        select count(*)
+        from comment;
+    </select>
+
+    <select id="select" parameterType="int" resultType="CommentDto">
+        select cno, bno, pcno, commenter, comment, commentDate
+        from comment
+        where cno = #{cno};
+    </select>
+
+    <select id="selectAll" resultType="CommentDto">
+        select *
+        from comment
+        order by cno desc;
+    </select>
+
+    <select id="selectCommentList" parameterType="int" resultType="CommentDto">
+        select cno, bno, ifnull(pcno, cno) as pcno, commenter, comment, commentDate
+        from comment
+        where bno = #{bno}
+        order by pcno, cno;
+    </select>
+
+    <select id="selectReplyList" parameterType="int" resultType="CommentDto">
+        select cno, bno, pcno, commenter, comment, commentDate
+        from comment
+        where bno = #{bno}
+          and pcno = #{pcno}
+        order by commentDate desc;
+    </select>
+
+
+    <!--delete-->
+    <delete id="deleteAll">
+        delete
+        from comment;
+    </delete>
+
+    <delete id="delete" parameterType="map">
+        delete
+        from comment
+        where cno = #{cno}
+          and commenter = #{commenter};
+    </delete>
+
+    <!--insert-->
+    <insert id="insert" parameterType="CommentDto">
+        insert into comment (bno, pcno, commenter, comment, commentDate)
+        values (#{bno}, #{pcno}, #{commenter}, #{comment}, #{commentDate});
+    </insert>
+
+    <!--update-->
+    <update id="update" parameterType="CommentDto">
+        update comment
+        set comment = #{comment}
+        where cno = #{cno};
+    </update>
+
+</mapper>
