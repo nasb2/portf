@@ -36,15 +36,16 @@ https://
 - JAVA 11 OpenJDK
 - Spring Framework
 - MyBatis
-- Jquery
+- jQuery
 - Ajax
+- REST API
 - JSTL
 
 ### Build tool
 - Maven
 
 ### Database
-- MYSQL
+- MySQL
 
 # 프로젝트 기획 의도
 기본적인 게시판 구현 능력을 갖춘 이후, 웹 프로젝트를 기획하고 서버를 배포해보기로 했습니다.  
