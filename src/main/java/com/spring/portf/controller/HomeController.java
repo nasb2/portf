@@ -24,6 +24,6 @@ public class HomeController {
             e.printStackTrace();
         }
 
-        return "home";
+        return "index";
     }
 }

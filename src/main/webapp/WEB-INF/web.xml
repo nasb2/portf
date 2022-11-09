@@ -25,7 +25,8 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
         <multipart-config>
-            <location>C:\img</location>
+            <!--            <location>C:\img</location>-->
+            <location>C:\apache-tomcat-9.0.68\webapps\img</location>
             <max-file-size>20971520</max-file-size>
         </multipart-config>
     </servlet>
@@ -41,10 +42,10 @@
         <location>/errors/error404.jsp</location>
     </error-page>
 
-    <!--    <error-page>-->
-    <!--        <error-code>500</error-code>-->
-    <!--        <location>/errors/error500.jsp</location>-->
-    <!--    </error-page>-->
+    <error-page>
+        <error-code>500</error-code>
+        <location>/errors/error500.jsp</location>
+    </error-page>
 
     <!-- 초기 jsessionid 방지 -->
     <session-config>

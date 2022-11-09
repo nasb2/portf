@@ -21,7 +21,7 @@
     </beans:bean>
 
     <context:component-scan base-package="com.spring.portf"/>
-    <view-controller path="/" view-name="home"/>
+    <view-controller path="/" view-name="index"/>
 
     <beans:bean id="userValidator" class="com.spring.portf.controller.UserValidator"/>
     <annotation-driven validator="userValidator"/>

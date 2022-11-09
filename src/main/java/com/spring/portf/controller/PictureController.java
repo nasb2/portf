@@ -207,6 +207,7 @@ public class PictureController {
     // 업로드한 이미지 파일 DB에 넣기 전처리
     public void uploadImageFile(MultipartFile file, PictureDto pictureDto) throws Exception {
         String filepath = "/img/";
+//        String filepath = "/images/";
         String originalFilename = file.getOriginalFilename();
         UUID uuid = UUID.randomUUID();
         String filename = uuid + "_" + file.getOriginalFilename();
