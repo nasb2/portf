@@ -157,7 +157,7 @@ http://springportfolio.shop:8080/portf/
 - **페이지 틀이 깨져버리는 문제**   
   테스트 중에 게시판 제목이나 내용이 일정 글자 수를 초과하는 경우에 페이지 틀과 요소가 깨져버리는 현상이 발견되었습니다. 
   게시판 메인 페이지에서는 원본을 건드리지 않고 일부만 보여주면 되기에 컨트롤러단에서 substring() 으로 길이를 적절히 잘라서 Model에 저장되도록 처리했습니다.   
-  https://blog.naver.com/devlearn/222897285822   
+  https://blog.naver.com/devlearn/222904085442  
   
 - **동적으로 생성된 버튼 먹통 현상**  
   document.ready() 안에다 댓글 삭제 버튼을 구현했으나 이벤트가 동작하지 않는 문제가 발생했습니다. document.ready() 는 페이지가 로드되는
